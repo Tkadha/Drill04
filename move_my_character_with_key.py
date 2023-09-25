@@ -46,8 +46,8 @@ while running:
     clear_canvas()
     TUK.draw(TUK_WIDTH // 2, TUK_HEIGHT // 2)
     if move == 1:
-        # character.clip_draw(move_frame * 130, 0, 130, 120, x, y)
-        # move_frame = (move_frame + 1) % 10
+        character.clip_draw(move_frame * 130, 0, 120, 120, x, y)
+        move_frame = (move_frame + 1) % 10
         pass
     elif move == 0:
         character.clip_draw(idle_frame * 125, 200, 110, 120, x, y)
@@ -58,7 +58,7 @@ while running:
         x += LR * 10
     if 25 < y + UD * 10 < TUK_HEIGHT-25:
         y += UD * 10
-    delay(0.1)
+    delay(0.07)
 
 
 close_canvas()
