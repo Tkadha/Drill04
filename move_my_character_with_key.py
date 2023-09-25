@@ -3,8 +3,7 @@ from pico2d import *
 TUK_WIDTH, TUK_HEIGHT = 1280, 1024
 open_canvas(TUK_WIDTH, TUK_HEIGHT)
 TUK = load_image('TUK_GROUND.png')
-
-
+character = load_image('animation_sheet.png')
 def handle_events():
     global running, LR, UD
 
@@ -35,10 +34,22 @@ def handle_events():
 
 
 running = True
-x = 800 // 2
 frame = 0
+LR, UD = 0, 0
+x, y = TUK_WIDTH // 2, TUK_HEIGHT // 2
 
-# fill here
+while running:
+    clear_canvas()
+    TUK.draw(TUK_WIDTH // 2, TUK_HEIGHT // 2)
+    character.clip_draw(frame * 100, 0, 100, 100, x, y)
+    update_canvas()
+    handle_events()
+    frame = (frame + 1) % 8
+    if x + LR * 10 < TUK_WIDTH-10:
+        x += LR * 10
+    if y + UD * 10 < TUK_HEIGHT-20:
+        y += UD * 10
+    delay(0.05)
 
 
 close_canvas()
