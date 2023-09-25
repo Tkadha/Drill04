@@ -45,9 +45,9 @@ while running:
     update_canvas()
     handle_events()
     frame = (frame + 1) % 8
-    if x + LR * 10 < TUK_WIDTH-10:
+    if 10 < x + LR * 10 < TUK_WIDTH-10:
         x += LR * 10
-    if y + UD * 10 < TUK_HEIGHT-20:
+    if 25 < y + UD * 10 < TUK_HEIGHT-25:
         y += UD * 10
     delay(0.05)
 
