@@ -12,7 +12,7 @@ def handle_events():
         if event.type == SDL_QUIT:
             running = False
         elif event.type == SDL_KEYDOWN:
-            move = 1
+            move += 1
             if event.key == SDLK_ESCAPE:
                 running = False
             elif event.key == SDLK_RIGHT:
@@ -24,7 +24,7 @@ def handle_events():
             elif event.key == SDLK_DOWN:
                 UD -= 1
         elif event.type == SDL_KEYUP:
-            move = 0
+            move -= 1
             if event.key == SDLK_RIGHT:
                 LR -= 1
             elif event.key == SDLK_LEFT:
@@ -45,7 +45,7 @@ x, y = TUK_WIDTH // 2, TUK_HEIGHT // 2
 while running:
     clear_canvas()
     TUK.draw(TUK_WIDTH // 2, TUK_HEIGHT // 2)
-    if move == 1:
+    if move > 0:
         character.clip_draw(move_frame * 130, 0, 120, 120, x, y)
         move_frame = (move_frame + 1) % 10
         pass
