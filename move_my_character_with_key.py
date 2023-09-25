@@ -12,6 +12,7 @@ def handle_events():
         if event.type == SDL_QUIT:
             running = False
         elif event.type == SDL_KEYDOWN:
+            move += 1
             if event.key == SDLK_ESCAPE:
                 running = False
             elif event.key == SDLK_RIGHT:
@@ -27,6 +28,7 @@ def handle_events():
                 move += 1
                 UD -= 1
         elif event.type == SDL_KEYUP:
+            move -= 1
             if event.key == SDLK_RIGHT:
                 move -= 1
                 LR -= 1
