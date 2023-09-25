@@ -42,7 +42,7 @@ x, y = TUK_WIDTH // 2, TUK_HEIGHT // 2
 while running:
     clear_canvas()
     TUK.draw(TUK_WIDTH // 2, TUK_HEIGHT // 2)
-    character.clip_draw(frame * 65, 0, 60, 60, x, y)
+    character.clip_draw(frame * 129, 0, 120, 120, x, y)
     frame = (frame + 1) % 10
     update_canvas()
     handle_events()
