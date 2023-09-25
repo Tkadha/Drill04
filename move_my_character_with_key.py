@@ -12,26 +12,32 @@ def handle_events():
         if event.type == SDL_QUIT:
             running = False
         elif event.type == SDL_KEYDOWN:
-            move += 1
             if event.key == SDLK_ESCAPE:
                 running = False
             elif event.key == SDLK_RIGHT:
+                move += 1
                 LR += 1
             elif event.key == SDLK_LEFT:
+                move += 1
                 LR -= 1
             elif event.key == SDLK_UP:
+                move += 1
                 UD += 1
             elif event.key == SDLK_DOWN:
+                move += 1
                 UD -= 1
         elif event.type == SDL_KEYUP:
-            move -= 1
             if event.key == SDLK_RIGHT:
+                move -= 1
                 LR -= 1
             elif event.key == SDLK_LEFT:
+                move -= 1
                 LR += 1
             elif event.key == SDLK_UP:
+                move -= 1
                 UD -= 1
             elif event.key == SDLK_DOWN:
+                move -= 1
                 UD += 1
 
 
@@ -48,10 +54,12 @@ while running:
     if move > 0:
         character.clip_draw(move_frame * 130, 0, 120, 120, x, y)
         move_frame = (move_frame + 1) % 10
+        print(move)
         pass
     elif move == 0:
         character.clip_draw(idle_frame * 125, 200, 110, 120, x, y)
         idle_frame = (idle_frame + 1) % 8
+
     update_canvas()
     handle_events()
     if 10 < x + LR * 10 < TUK_WIDTH-10:
